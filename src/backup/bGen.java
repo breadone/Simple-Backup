@@ -33,6 +33,7 @@ public class bGen {
                 }
                 return digest.digest();
             } catch (Exception e) {
+                System.out.println("error when calculating hash value");
                 e.printStackTrace();
             }
             return null;

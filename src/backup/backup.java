@@ -12,10 +12,12 @@ public class backup {
         StartService();
     }
 
-    public static String QueryPath() {
+    public static String QueryPath() throws FileNotFoundException {
         String path;
         System.out.print("paste the path to the file or folder to backup: ");
         path = System.console().readLine();
+        
+
         return path;
     }
 
@@ -23,6 +25,7 @@ public class backup {
         File path = new File(QueryPath());
         byte[] hash = new byte[65535];
         //generate md5
+
         hash = bGen.Hash.MD5.checksum(path);
         System.out.println(hash);
 

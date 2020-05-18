@@ -1,9 +1,8 @@
 package backup;
 
 import java.io.*;
-import java.security.MessageDigest;
-
-import sun.security.provider.MD5;
+import java.util.zip.CRC32;
+import java.util.zip.CheckedInputStream;
 
 public class backup {
 
@@ -20,16 +19,17 @@ public class backup {
 
     public static void StartService() {
         String path = QueryPath();
-        //byte[] md5 = new byte[1024];
         long md5;
         //generate md5
-        md5 = CreateChecksum(path);
+        md5 = GenerateChecksum(path);
         System.out.println(md5);
+
+        
 
     }
 
 
-    public static long CreateChecksum(String filename) throws Exception {
+   /* public static long CreateChecksum(String filename) throws Exception {
         InputStream fis =  new FileInputStream(filename);
         long hash = 0;
 
@@ -50,6 +50,15 @@ public class backup {
             }
 
             return hash;
-    }
+    }*/
 
+
+    public static long GenerateChecksum(String path) throws IOException {
+        InputStream stream = new FileInputStream(path);
+        CheckedInputStream CInputStream = new CheckedInputStream(stream, new CRC32());
+        byte[] buffer = new byte[65536];
+        
+
+        return 1238;
+    }
 }

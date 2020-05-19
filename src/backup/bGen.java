@@ -26,7 +26,7 @@ public class bGen {
         public byte[] checksum(File input) {
             try (InputStream in = new FileInputStream(input)) {
                 MessageDigest digest = MessageDigest.getInstance(getName());
-                byte[] block = new byte[4096];
+                byte[] block = new byte[2048];
                 int length;
                 while ((length = in.read(block)) > 0) {
                     digest.update(block, 0, length);

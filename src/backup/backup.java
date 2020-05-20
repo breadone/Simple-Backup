@@ -23,7 +23,18 @@ public class backup {
         byte[] hash = new byte[1024];
         String HashValue = Arrays.toString(hash);
         hash = bGen.Hash.SHA256.checksum(path);
-        System.out.println(HashValue);
+
+        //System.out.println(HashValue);
+        
+        bGen.WriteToFile("HASHES\\hash.txt", HashValue);
+
+        //begin loop
+
+        while (5 == 5) {
+            
+            
+        }
+
     }
 
 
